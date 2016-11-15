@@ -143,21 +143,25 @@ template<> void PROCESS_MAIN::exec()
     };
     
     packet_count = packet_count + 1;
+    
+    unsigned char * buf;
       
     if (flag.wait(T_Send)) {
       
       temp_message.out(temp);
       //printf("Alarm out temp=%2.2f degrees celsius\n\r", temp);
       sended_temp = temp;
-      
-      CC2420_SendPacket(tx_info, (unsigned char *) &sended_temp, sizeof(sended_temp));
+      buf = (unsigned char *) &temp;
+      CC2420_SendPacket(tx_info, buf, sizeof(temp));
+     // CC2420_SendPacket(tx_info, &test, sizeof(test));
       
     } else {
       temp_message.out(temp);
       //printf("Out temp=%2.2f degrees celsius\n\r", temp);
       sended_temp = temp;
       
-      CC2420_SendPacket(tx_info, (unsigned char *) &sended_temp, sizeof(sended_temp));
+      CC2420_SendPacket(tx_info, buf, sizeof(temp));
+      //CC2420_SendPacket(tx_info, &test, sizeof(test));
     }
   }
 }

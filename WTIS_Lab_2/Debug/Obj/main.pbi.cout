@@ -216,7 +216,7 @@ C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_2\scmRTOS\MSP430
 -D__HAS_LOCATED_DECLARATION__=1
 -D__IAR_COMPILERBASE__=593416
 -D__DATE__="Nov 15 2016"
--D__TIME__="15:12:56"
+-D__TIME__="15:38:18"
 -D__STDC__=1
 -D__cplusplus=199711L
 -D__iar_extended_embedded_cplusplus=1

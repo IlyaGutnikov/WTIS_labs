@@ -19,7 +19,7 @@
       <file>$PROJ_DIR$\scmRTOS\MSP430\OS_Target_asm.s43</file>
       <file>$PROJ_DIR$\scmRTOS\MSP430\OS_Target_cpp.cpp</file>
       <file>$PROJ_DIR$\scmRTOS_extensions.h</file>
-      <file>$PROJ_DIR$\scmRTOS_TARGET_CFG.h</file>
+      <file>$PROJ_DIR$\scmRTOS_target_cfg.h</file>
       <file>$PROJ_DIR$\scmRTOS_config.h</file>
       <file>$PROJ_DIR$\cc2420.c</file>
       <file>$PROJ_DIR$\cc2420.h</file>
@@ -59,7 +59,7 @@
       <file>$TOOLKIT_DIR$\inc\dlib\c\ycheck.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\stddef.h</file>
       <file>$PROJ_DIR$\Debug\Obj\OS_Target_cpp.pbi</file>
-      <file>$TOOLKIT_DIR$\inc\io430xG46x.h</file>
+      <file>$TOOLKIT_DIR$\inc\io430xg46x.h</file>
       <file>$TOOLKIT_DIR$\inc\dlib\c\yfuns.h</file>
       <file>$TOOLKIT_DIR$\config\lnk430FG4618.xcl</file>
       <file>$PROJ_DIR$\Debug\Obj\OS_Target_cpp.r43</file>
