@@ -39,7 +39,7 @@ NextState1=0
 Break=0
 State Storage=0
 [DebugChecksum]
-Checksum=-2107805374
+Checksum=393949520
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -54,13 +54,6 @@ Symbiont=0
 Exclusions=
 [EEM State Storage]
 Buffer=BAAAAAAADAAAAAAAAAAAAAAA
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
 Count=0
 [FET]
@@ -81,10 +74,22 @@ SP=0
 SR=0
 all registers=0
 File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
-A0=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.cpp" ""
-A1=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.h" ""
-A2=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\MSP430\OS_Target_cpp.cpp" ""
-A3=_ "D:\WTIS_Labs\WTIS_Lab_1\uart.c" ""
-Count=4
-SuppressDialog=0
+A0=_ "C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\main.cpp" ""
+A1=_ "C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.cpp" ""
+A2=_ "C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.h" ""
+A3=_ "C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\MSP430\OS_Target_cpp.cpp" ""
+A4=_ "C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\uart.c" ""
+A5=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.cpp" ""
+A6=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\Common\OS_Kernel.h" ""
+A7=_ "D:\WTIS_Labs\WTIS_Lab_1\scmRTOS\MSP430\OS_Target_cpp.cpp" ""
+A8=_ "D:\WTIS_Labs\WTIS_Lab_1\uart.c" ""
+Count=9
+SuppressDialog=1

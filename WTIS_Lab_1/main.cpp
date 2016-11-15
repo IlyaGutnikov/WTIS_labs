@@ -21,6 +21,12 @@ size_t StackSlacks[OS::PROCESS_COUNT];
 #define LED_2_Off() (P2OUT &= ~(1 << 1))
 #define LED_2_Toggle() (P2OUT ^= (1 << 1))
 
+#define T_Sample 64
+#define T_Send 256
+#define T_Treshold 0.1
+// коэффициент сглаживания
+#define alpha 0.7 
+
 void main()
 {
   Sys_Init(); // Инициализация системы тактирования
@@ -48,20 +54,32 @@ void OS::IdleProcessUserHook()
 }
 //---------------------------------------------------------------------------
 
+//Симуляция воздействия ФНЧ на серию цифровых отсчетов
+float Filter(float last_temp, float temp) {
+
+  return alpha * temp + (1 - alpha) * last_temp;
+
+}
+
 template<> void PROCESS_MAIN::exec()
 {
-  float Temperature;
+  float current_temp;
+  float prev_temp;
+  float filtered_temp;
   
   LED_1_On();
   LED_2_Off();
   for (;;)
   {
     // Тело основного процесса
-    Temperature = Sensors_IntTemperature_Read();
-    printf("Temperature=%2.2f degrees Celsius\n\r", Temperature);
+    current_temp = Sensors_IntTemperature_Read();
+    filtered_temp = Filter(prev_temp, current_temp);
+    printf("Temperature=%2.2f degrees Celsius\n\r", filtered_temp);
     LED_1_Toggle();
     LED_2_Toggle();
-    sleep(64);
+    sleep(T_Send);
+    
+    prev_temp = filtered_temp;
   }
 }
 //---------------------------------------------------------------------------
