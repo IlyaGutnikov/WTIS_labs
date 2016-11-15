@@ -1,5 +1,5 @@
 [DebugChecksum]
-Checksum=1099423097
+Checksum=1692531315
 [Stack]
 FillEnabled=0
 OverflowWarningsEnabled=1
@@ -25,21 +25,12 @@ State Storage=0
 ShowArgs=0
 [Disassembly]
 MixedMode=1
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Breakpoints]
 Count=0
 [FET]
-Clock mode=14
-Extended Clock mode=-1
+Clock mode=46
+Extended Clock mode=65535
 Secure Password=
-Extended Clock Control Enable=1
-Advanced Extended Clock Control=0
 Emulation mode=0
 Free running=0
 Shutting Down=3
@@ -54,6 +45,13 @@ SP=0
 SR=0
 all registers=0
 File name=
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0

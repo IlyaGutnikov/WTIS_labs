@@ -30,13 +30,6 @@ size_t StackSlacks[OS::PROCESS_COUNT];
 #define LED_2_Off() (P2OUT &= ~(1 << 1))
 #define LED_2_Toggle() (P2OUT ^= (1 << 1))
 
-static OS::TEventFlag RxPacketEvent;
-static RADIO_PACKET_RX_INFO PacketInfo;
-static unsigned char PacketData[CC2420_FRAME_PAYLOAD_MAX_SIZE];
-static int PacketDataSize;
-
-void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, unsigned char Size);
-
 #define T_Sample 64
 #define T_Send 256
 #define T_Treshold 0.1
@@ -44,6 +37,13 @@ void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, un
 #define alpha 0.7 
 
 float sended_temp;
+
+static OS::TEventFlag RxPacketEvent;
+static RADIO_PACKET_RX_INFO PacketInfo;
+static unsigned char PacketData[CC2420_FRAME_PAYLOAD_MAX_SIZE];
+static int PacketDataSize;
+
+void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, unsigned char Size);
 
 void main()
 {
@@ -129,24 +129,42 @@ template<> void PROCESS_MAIN::exec()
 {
   float temp;
   
+  int packet_count = 0;
+  
   for (;;)
   {
+    
+    RADIO_PACKET_TX_INFO tx_info = {
+      
+      1,
+      2,
+      packet_count,
+      0
+    };
+    
+    packet_count = packet_count + 1;
+      
     if (flag.wait(T_Send)) {
+      
       temp_message.out(temp);
-      printf("Alarm out temp=%2.2f degrees celsius\n\r", temp);
+      //printf("Alarm out temp=%2.2f degrees celsius\n\r", temp);
       sended_temp = temp;
+      
+      CC2420_SendPacket(tx_info, (unsigned char *) &sended_temp, sizeof(sended_temp));
       
     } else {
       temp_message.out(temp);
-      printf("Out temp=%2.2f degrees celsius\n\r", temp);
+      //printf("Out temp=%2.2f degrees celsius\n\r", temp);
       sended_temp = temp;
+      
+      CC2420_SendPacket(tx_info, (unsigned char *) &sended_temp, sizeof(sended_temp));
     }
   }
 }
-//---------------------------------------------------------------------------
+
 
 void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, unsigned char Size)
 {
-  // Обработчик принятого пакета
+  
 }
 //---------------------------------------------------------------------------
