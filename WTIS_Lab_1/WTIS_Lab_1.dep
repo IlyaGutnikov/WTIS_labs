@@ -233,6 +233,10 @@
       <name>$PROJ_DIR$\main.cpp</name>
       <outputs>
         <tool>
+          <name>ICC430</name>
+          <file> 27</file>
+        </tool>
+        <tool>
           <name>BICOMP</name>
           <file> 32</file>
         </tool>

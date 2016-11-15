@@ -1,12 +1,12 @@
-"C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\MSP430\OS_Target_cpp.cpp"
+"C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1\scmRTOS\MSP430\OS_Target_cpp.cpp"
 -std=c++98
 -ferror-limit=100
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\Common
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1\scmRTOS\Common
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\MSP430
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1\scmRTOS\MSP430
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib
 -I
@@ -16,11 +16,11 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib\ecpp
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\Common
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1\scmRTOS\Common
 -I
-C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\MSP430
+C:\Users\student.IU3.019\WTIS_labs\WTIS_Lab_1\scmRTOS\MSP430
 -DMSP430FG4618=1
 -D__MSP430FG4618__=1
 -D__CHAR_BITS__=8
@@ -216,7 +216,7 @@ C:\Users\student.IU3.019\Desktop\WTIS_Lab_1\scmRTOS\MSP430
 -D__HAS_LOCATED_DECLARATION__=1
 -D__IAR_COMPILERBASE__=593416
 -D__DATE__="Nov 15 2016"
--D__TIME__="11:02:50"
+-D__TIME__="12:27:47"
 -D__STDC__=1
 -D__cplusplus=199711L
 -D__iar_extended_embedded_cplusplus=1
