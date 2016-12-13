@@ -1,12 +1,12 @@
-"D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\main.cpp"
+"C:\Users\student.IU3.011\Desktop\WTIS_Lab_2\main.cpp"
 -std=c++98
 -ferror-limit=100
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\scmRTOS\Common
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2\scmRTOS\Common
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\scmRTOS\MSP430
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2\scmRTOS\MSP430
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib
 -I
@@ -16,11 +16,11 @@ C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib\c
 -I
 C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\430\inc\dlib\ecpp
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\scmRTOS\Common
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2\scmRTOS\Common
 -I
-D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\scmRTOS\MSP430
+C:\Users\student.IU3.011\Desktop\WTIS_Lab_2\scmRTOS\MSP430
 -DMSP430FG4618=1
 -D__MSP430FG4618__=1
 -D__CHAR_BITS__=8
@@ -215,8 +215,8 @@ D:\iu3-37m\stasenko\WTIS_Labs\WTIS_Labs\WTIS_Lab_2\WTIS_Lab_2\scmRTOS\MSP430
 -D__PLAIN_INT_BITFIELD_IS_SIGNED__=1
 -D__HAS_LOCATED_DECLARATION__=1
 -D__IAR_COMPILERBASE__=593416
--D__DATE__="Nov 15 2016"
--D__TIME__="15:29:37"
+-D__DATE__="Dec 13 2016"
+-D__TIME__="12:36:03"
 -D__STDC__=1
 -D__cplusplus=199711L
 -D__iar_extended_embedded_cplusplus=1

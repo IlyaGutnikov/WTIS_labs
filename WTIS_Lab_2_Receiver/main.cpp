@@ -24,10 +24,9 @@ size_t StackSlacks[OS::PROCESS_COUNT];
 #define LED_2_Off() (P2OUT &= ~(1 << 1))
 #define LED_2_Toggle() (P2OUT ^= (1 << 1))
 
+#define t_link 1024
+
 static OS::TEventFlag RxPacketEvent;
-static RADIO_PACKET_RX_INFO PacketInfo;
-static unsigned char PacketData[CC2420_FRAME_PAYLOAD_MAX_SIZE];
-static int PacketDataSize;
 
 void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, unsigned char Size);
 
@@ -41,10 +40,10 @@ void main()
  
   LED_1_Init(); // Инициализация светодиодов
   LED_2_Init();
-
+    
   CC2420_Init(&CC2420_OnReceivedPacket); // Установка адреса обработчика принятого пакета
   CC2420_Setup();
-  CC2420_SetChannel(11); // Установка номера частотного канала (от 11 до 26)
+  CC2420_SetChannel(23); // Установка номера частотного канала (от 11 до 26)
   CC2420_SetAddress(2); // Установка адреса узла  
    
   OS::Run(); // Запуск операционной системы
@@ -63,37 +62,64 @@ void OS::IdleProcessUserHook()
 }
 //---------------------------------------------------------------------------
 
+int count_receive = 0;
+int packet_not_receive = 0;
+
 template<> void PROCESS_MAIN::exec()
 {
   LED_1_On();
   LED_2_Off();
-  CC2420_SetReceiveMode();
+  CC2420_SetReceiveMode(); //Переходим в режим приема
   for (;;)
   {
     // Тело основного процесса
     LED_1_Toggle();
     LED_2_Toggle();
-    sleep(64);
+    float percent = ((float)count_receive /((float)count_receive + (float)packet_not_receive))*100;
+    printf(" receive = %d; ", count_receive);
+    printf(" left = %d; ", packet_not_receive);
+    printf(" Percent = %d;\n\r", (int)percent);
+    count_receive = 0;
+    packet_not_receive = 0;
+    sleep(t_link);
   }
 }
 //---------------------------------------------------------------------------
 
+  int last_packets = 0;
+
 void CC2420_OnReceivedPacket(RADIO_PACKET_RX_INFO &Info, unsigned char *Data, unsigned char Size)
 {
   // Обработчик принятого пакета
-  float temp = 0;
-  float * buff;
-  if ((Info.SrcID != 1) || (Info.DestID != 2))
-    return;
-  //printf("Ticks = %i\n", get_tick_count());
-  printf("Sender address = %d\n", Info.SrcID);
-  printf("Power = %d\n", Info.RSSI);
-  printf("Quality = %d\n", Info.LQI);
+  union {
+    float f;
+    unsigned char b[4];
+  } u;
   
-  memcpy(&temp,Data,Size);
+  if(last_packets+1!=Info.Seq)
+    packet_not_receive=Info.Seq-last_packets-1;
   
-  printf("DATA = %d\n", *buff);
+  last_packets = Info.Seq;
+  count_receive++;
   
+  
+  printf("Sender address = %d;", Info.SrcID);
+  printf(" Power = %d;", Info.RSSI);
+  printf(" Packet count = %d;", Info.Seq);
+  printf(" Quality = %d;", Info.LQI);
+  printf(" Size = %d;", Size);
+
+  for (int i = 0;i<Size;i++)
+  {
+    u.b[i] = Data[i];
+  }
+
+  float h = (u.f - (int)u.f)*1000;
+  
+  printf(" DATA = %d", (int)u.f);
+  printf(".%d;\n\r", (int)h);
+
   CC2420_SetReceiveMode();
+  
 }
 //---------------------------------------------------------------------------
